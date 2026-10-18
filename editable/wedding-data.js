@@ -14,45 +14,45 @@ window.WEDDING_DATA = {
 
   invite: {
     kicker: "Together with their families",
-    line: "cordially invite you to celebrate their wedding reception",
+    line: "cordially invite you to celebrate their Bariksha & Ring Ceremony",
   },
 
   event: {
-    title: "Reception",
-    startsAt: "2026-11-27T19:00:00+05:30",
-    endsAt: "2026-11-27T23:30:00+05:30",
-    dateLabel: "27 . 11 . 2026",
-    dayLabel: "Friday",
-    timeLabel: "07.00 PM Onwards",
+    title: "Bariksha & Ring Ceremony",
+    startsAt: "2026-11-16T18:00:00+05:30",
+    endsAt: "2026-11-16T23:30:00+05:30",
+    dateLabel: "16 . 11 . 2026",
+    dayLabel: "Monday",
+    timeLabel: "06.00 PM Onwards",
     note: "Dinner & Celebrations to follow",
   },
 
   venue: {
-    name: "Crystal Plaza",
-    address: "Patrakarpuram, Khyora, Kanpur, Uttar Pradesh (Near Pashupati Nath Temple)",
-    mapsQuery: "Crystal Plaza, Patrakarpuram, Khyora, Kanpur, Uttar Pradesh Near Pashupati Nath temple",
-    mapsUrl: "https://maps.app.goo.gl/vznf8HWdSEj7aioi6",
-    lat: 26.4958,
-    lng: 80.2858,
+    name: "Tribhuvan Palace",
+    address: "GNS 48, Indira Nagar Road, Kalyanpur, Kanpur, Uttar Pradesh 208026 (Near Shakti Bakery)",
+    mapsQuery: "Tribhuvan Palace, GNS 48, Indira Nagar Road, Kalyanpur, Kanpur, Uttar Pradesh 208026 Near Shakti Bakery",
+    mapsUrl: "https://maps.app.goo.gl/jCJPdLeAk1onSCXx7",
+    lat: 26.5037,
+    lng: 80.2525,
   },
 
   story: [
     {
-      year: "27 November",
-      title: "WELCOME OF GUESTS",
-      text: "07.00 PM Onwards, Crystal Plaza, Kanpur",
+      year: "16 November",
+      title: "BARIKSHA & GODH BHARAI",
+      text: "06.00 PM Onwards, Tribhuvan Palace, Kanpur",
       image: "story-2",
     },
     {
-      year: "27 November",
-      title: "WEDDING RECEPTION",
-      text: "07.30 PM Onwards — Felicitation of Sonam & Abhishek, Crystal Plaza, Kanpur",
+      year: "16 November",
+      title: "RING CEREMONY",
+      text: "07.30 PM Onwards, Tribhuvan Palace, Kanpur",
       image: "story-1",
     },
     {
-      year: "27 November",
-      title: "DINNER & CELEBRATIONS",
-      text: "08.30 PM Onwards — Grand Dinner, Crystal Plaza, Kanpur",
+      year: "16 November",
+      title: "CAKE - CUTTING",
+      text: "08.00 PM, Tribhuvan Palace, Kanpur",
       image: "story-3",
     },
   ],
@@ -64,7 +64,7 @@ window.WEDDING_DATA = {
   },
 
   footer: {
-    families: `With Blessings & Warm Regards,\n\nLate Mrs. Poonam Shukla & Mr. Santosh Shukla & Family\n(Bride's Family)\n\n&\n\nMrs. Anamika Shukla & Mr. Anil Kumar Shukla & Family\n(Groom's Family)`,
+    families: `With Blessings & Warm Regards,\n\nLate Mrs. Poonam Shukla & Mr. Santosh Shukla & Family\n(Bride's Family)\n\n&\n\nLate Mrs. Prema Devi Shukla & Late Mr. Shyam Gopal Shukla\n(Groom's Grandparents)\n\nMrs. Anamika Shukla & Mr. Anil Kumar Shukla & Family\n(Groom's Family)`,
     contacts: [
       { name: "Groom's Family", phone: "9455043621" },
       { name: "Groom's Family", phone: "9793140908" },
