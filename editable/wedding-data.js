@@ -83,7 +83,7 @@ window.WEDDING_DATA = {
 
   music: {
     src: "./editable/assets/bg.mp3",
-    title: "Banke Tera Jogi",
+    title: "O Rangrez",
     autoplay: true,
     loop: true,
   },
