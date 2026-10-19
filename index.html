@@ -127,9 +127,8 @@
   </head>
   <body>
     <!-- Background Audio Element -->
-    <audio id="weddingBgAudio" loop preload="auto">
+    <audio id="weddingBgAudio" loop preload="auto" playsinline src="editable/assets/bg.mp3">
       <source src="editable/assets/bg.mp3" type="audio/mpeg">
-      <source src="editable/assets/bgsa.mp3" type="audio/mpeg">
       <source src="bg.mp3" type="audio/mpeg">
     </audio>
 
@@ -151,18 +150,22 @@
         var btn = document.getElementById('weddingMusicToggle');
         if (!audio || !btn) return;
 
-        // Sync audio source from WEDDING_DATA if configured
+        // Apply custom music track if configured in wedding-data.js
         if (window.WEDDING_DATA && window.WEDDING_DATA.music && window.WEDDING_DATA.music.src) {
-          var customSrc = window.WEDDING_DATA.music.src;
-          var source = audio.querySelector('source');
-          if (source && source.getAttribute('src') !== customSrc) {
-            source.src = customSrc;
-            audio.load();
-          } else if (!source && audio.getAttribute('src') !== customSrc) {
-            audio.src = customSrc;
-            audio.load();
+          var targetSrc = window.WEDDING_DATA.music.src;
+          if (audio.getAttribute('src') !== targetSrc) {
+            audio.src = targetSrc;
           }
         }
+
+        // Fallback to root bg.mp3 if relative editable path fails
+        audio.addEventListener('error', function() {
+          console.warn('Audio failed on source:', audio.src);
+          if (audio.src && audio.src.indexOf('editable/assets/') !== -1) {
+            audio.src = 'bg.mp3';
+            audio.load();
+          }
+        });
 
         function updateUI(playing) {
           if (playing) {
@@ -174,26 +177,24 @@
           }
         }
 
-        // Keep UI strictly in sync with native audio state
+        // Synchronize UI strictly with native audio media events
         audio.addEventListener('play', function() { updateUI(true); });
         audio.addEventListener('playing', function() { updateUI(true); });
         audio.addEventListener('pause', function() { updateUI(false); });
         audio.addEventListener('ended', function() { updateUI(false); });
 
-        function toggleAudio() {
-          if (audio.paused) {
-            var promise = audio.play();
-            if (promise !== undefined) {
-              promise.then(function() {
-                updateUI(true);
-              }).catch(function(err) {
-                console.warn('Playback error:', err);
-                updateUI(false);
-              });
-            }
-          } else {
-            audio.pause();
-            updateUI(false);
+        function startAudio() {
+          if (!audio.paused) return;
+          audio.muted = false;
+          var promise = audio.play();
+          if (promise !== undefined) {
+            promise.then(function() {
+              updateUI(true);
+              removeGestureListeners();
+            }).catch(function(err) {
+              console.log('Autoplay policy waiting for user gesture:', err);
+              updateUI(false);
+            });
           }
         }
 
@@ -201,54 +202,51 @@
         btn.addEventListener('click', function(e) {
           e.stopPropagation();
           e.preventDefault();
-          toggleAudio();
-        });
+          removeGestureListeners();
 
-        // Try autoplay on page load
-        function tryAutoplay() {
-          var promise = audio.play();
-          if (promise !== undefined) {
-            promise.then(function() {
-              updateUI(true);
-              removeGestureListeners();
-            }).catch(function() {
-              updateUI(false);
-            });
-          }
-        }
-
-        // Autoplay policy unlock on first user gesture
-        var gestureEvents = ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'];
-
-        function onFirstInteraction(e) {
-          // If interaction originated from the music button itself, let button click handler manage it
-          if (e && e.target && (e.target === btn || (btn.contains && btn.contains(e.target)))) {
-            removeGestureListeners();
-            return;
-          }
           if (audio.paused) {
+            audio.muted = false;
             var promise = audio.play();
             if (promise !== undefined) {
               promise.then(function() {
-                removeGestureListeners();
-              }).catch(function() {});
+                updateUI(true);
+              }).catch(function(err) {
+                console.warn('Playback error on button click:', err);
+                audio.load();
+                audio.play().catch(function() {});
+              });
             }
           } else {
-            removeGestureListeners();
+            audio.pause();
+            updateUI(false);
           }
+        });
+
+        // Autoplay unlock on first user gesture
+        var gestureEvents = ['touchstart', 'touchend', 'click', 'pointerdown'];
+
+        function onFirstInteraction(e) {
+          if (e && e.target && (e.target === btn || (btn.contains && btn.contains(e.target)))) {
+            return;
+          }
+          removeGestureListeners();
+          startAudio();
         }
 
         function removeGestureListeners() {
           gestureEvents.forEach(function(evt) {
             window.removeEventListener(evt, onFirstInteraction, true);
+            document.removeEventListener(evt, onFirstInteraction, true);
           });
         }
 
         gestureEvents.forEach(function(evt) {
-          window.addEventListener(evt, onFirstInteraction, true);
+          window.addEventListener(evt, onFirstInteraction, { capture: true, passive: true });
+          document.addEventListener(evt, onFirstInteraction, { capture: true, passive: true });
         });
 
-        tryAutoplay();
+        // Attempt autoplay on page load
+        startAudio();
       })();
     </script>
   </body>
