@@ -133,7 +133,7 @@
     </audio>
 
     <!-- Floating Background Music Toggle Button -->
-    <button id="weddingMusicToggle" class="wedding-music-btn paused" aria-label="Toggle background music" title="Toggle Music">
+    <button id="weddingMusicToggle" class="wedding-music-btn playing" aria-label="Toggle background music" title="Toggle Music">
       <svg class="icon-music" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 18V5l12-2v13"></path>
         <circle cx="6" cy="18" r="3"></circle>
@@ -223,13 +223,12 @@
         });
 
         // Autoplay unlock on first user gesture
-        var gestureEvents = ['touchstart', 'touchend', 'click', 'pointerdown'];
+        var gestureEvents = ['touchstart', 'touchend', 'click', 'pointerdown', 'scroll'];
 
         function onFirstInteraction(e) {
           if (e && e.target && (e.target === btn || (btn.contains && btn.contains(e.target)))) {
             return;
           }
-          removeGestureListeners();
           startAudio();
         }
 
@@ -241,8 +240,8 @@
         }
 
         gestureEvents.forEach(function(evt) {
-          window.addEventListener(evt, onFirstInteraction, { capture: true, passive: true });
-          document.addEventListener(evt, onFirstInteraction, { capture: true, passive: true });
+          window.addEventListener(evt, onFirstInteraction, true);
+          document.addEventListener(evt, onFirstInteraction, true);
         });
 
         // Attempt autoplay on page load
