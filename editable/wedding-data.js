@@ -40,19 +40,19 @@ window.WEDDING_DATA = {
     {
       year: "16 November",
       title: "BARIKSHA & GODH BHARAI",
-      text: "06.00 PM Onwards, Tribhuvan Palace, Kanpur",
+      text: "06.00 PM Onwards from Tribhuvan Palace, Kanpur",
       image: "story-2",
     },
     {
       year: "16 November",
       title: "RING CEREMONY",
-      text: "07.30 PM Onwards, Tribhuvan Palace, Kanpur",
+      text: "07.30 PM Onwards from Tribhuvan Palace, Kanpur",
       image: "story-1",
     },
     {
       year: "16 November",
       title: "CAKE - CUTTING",
-      text: "08.00 PM, Tribhuvan Palace, Kanpur",
+      text: "08.00 PM from Tribhuvan Palace, Kanpur",
       image: "story-3",
     },
   ],
@@ -64,7 +64,7 @@ window.WEDDING_DATA = {
   },
 
   footer: {
-    families: `With Blessings & Warm Regards,\n\nLate Mrs. Poonam Shukla & Mr. Santosh Shukla & Family\n(Bride's Family)\n\n&\n\nLate Mrs. Prema Devi Shukla & Late Mr. Shyam Gopal Shukla\n(Groom's Grandparents)\n\nMrs. Anamika Shukla & Mr. Anil Kumar Shukla & Family\n(Groom's Family)`,
+    families: `With Blessings & Warm Regards,\n\nLate Mrs. Poonam Shukla & Mr. Santosh Shukla with Family\n(Bride's Family)\n\n&\n\nMrs. Anamika Shukla & Mr. Anil Kumar Shukla with Family\n(Groom's Family)`,
     contacts: [
       { name: "Groom's Family", phone: "9455043621" },
       { name: "Groom's Family", phone: "9793140908" },
