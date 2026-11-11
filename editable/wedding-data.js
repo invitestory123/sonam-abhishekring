@@ -14,15 +14,15 @@ window.WEDDING_DATA = {
 
   invite: {
     kicker: "Together with their families",
-    line: "cordially invite you to celebrate their Bariksha & Ring Ceremony",
+    line: "cordially invite you to celebrate their Bariksha, Tilak & Ring Ceremony",
   },
 
   event: {
-    title: "Bariksha & Ring Ceremony",
-    startsAt: "2026-11-16T18:00:00+05:30",
-    endsAt: "2026-11-16T23:30:00+05:30",
-    dateLabel: "16 . 11 . 2026",
-    dayLabel: "Monday",
+    title: "Bariksha, Tilak & Ring Ceremony",
+    startsAt: "2026-11-19T18:00:00+05:30",
+    endsAt: "2026-11-19T23:30:00+05:30",
+    dateLabel: "19 . 11 . 2026",
+    dayLabel: "Thursday",
     timeLabel: "06.00 PM Onwards",
     note: "Dinner & Celebrations to follow",
   },
@@ -38,19 +38,25 @@ window.WEDDING_DATA = {
 
   story: [
     {
-      year: "16 November",
+      year: "19 November",
       title: "BARIKSHA & GODH BHARAI",
       text: "06.00 PM Onwards from Tribhuvan Palace, Kanpur",
       image: "story-2",
     },
     {
-      year: "16 November",
+      year: "19 November",
+      title: "TILAK CEREMONY",
+      text: "06.30 PM Onwards from Tribhuvan Palace, Kanpur",
+      image: "story-1",
+    },
+    {
+      year: "19 November",
       title: "RING CEREMONY",
       text: "07.30 PM Onwards from Tribhuvan Palace, Kanpur",
       image: "story-1",
     },
     {
-      year: "16 November",
+      year: "19 November",
       title: "CAKE - CUTTING",
       text: "08.00 PM from Tribhuvan Palace, Kanpur",
       image: "story-3",
